@@ -28,7 +28,7 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
     try {
       const validatedEmail = addFriendValidator.parse({ email });
 
-      await axios.post("api/friends/add", {
+      await axios.post("/api/friends/add", {
         email: validatedEmail,
       });
 
@@ -70,7 +70,7 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
       </div>
       <p className="mt-1 text-sm text-red-600">{errors.email?.message}</p>
       {showSuccessState ? (
-        <p className="mt-1 text-sm text-red-600">Friend request sent!</p>
+        <p className="mt-1 text-sm text-green-600">Friend request sent!</p>
       ) : null}
     </form>
   );
